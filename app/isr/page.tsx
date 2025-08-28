@@ -1,5 +1,9 @@
 async function getWeatherData() {
-  const res = await fetch("https://wttr.in/London?format=j1");
+  const res = await fetch("https://wttr.in/London?format=j1", {
+    next: {
+      revalidate: 30,
+    },
+  });
 
   if (!res.ok) {
     throw new Error("Failed to fetch weather data");
