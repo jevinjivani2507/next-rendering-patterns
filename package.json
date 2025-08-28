@@ -1,23 +1,48 @@
 {
-  "name": "csr-ssr-ssg-isr",
-  "version": "0.1.0",
+  "name": "next-rendering-patterns",
+  "version": "1.0.0",
   "private": true,
+  "description": "A comprehensive demonstration of Next.js rendering patterns using a weather application",
+  "author": "Next.js Rendering Patterns",
+  "license": "MIT",
+  "keywords": [
+    "nextjs",
+    "react",
+    "typescript",
+    "tailwindcss",
+    "ssr",
+    "csr",
+    "ssg",
+    "isr",
+    "weather-app"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yourusername/next-rendering-patterns"
+  },
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start"
   },
   "dependencies": {
+    "@radix-ui/react-tabs": "^1.1.13",
+    "axios": "^1.11.0",
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
+    "lucide-react": "^0.542.0",
+    "next": "15.5.2",
     "react": "19.1.0",
     "react-dom": "19.1.0",
-    "next": "15.5.2"
+    "tailwind-merge": "^3.3.1"
   },
   "devDependencies": {
-    "typescript": "^5",
+    "@tailwindcss/postcss": "^4",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
-    "@tailwindcss/postcss": "^4",
-    "tailwindcss": "^4"
+    "tailwindcss": "^4",
+    "tw-animate-css": "^1.3.7",
+    "typescript": "^5"
   }
 }
