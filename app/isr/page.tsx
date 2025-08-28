@@ -1,15 +1,34 @@
 async function getWeatherData() {
-  const res = await fetch("https://wttr.in/London?format=j1", {
-    next: {
-      revalidate: 30,
-    },
-  });
+  try {
+    const controller = new AbortController();
+    const timeoutId = setTimeout(() => controller.abort(), 5000); // 5 second timeout
 
-  if (!res.ok) {
-    throw new Error("Failed to fetch weather data");
+    const res = await fetch("https://wttr.in/London?format=j1", {
+      next: {
+        revalidate: 35,
+      },
+      signal: controller.signal,
+    });
+
+    clearTimeout(timeoutId);
+
+    if (!res.ok) {
+      throw new Error("Failed to fetch weather data");
+    }
+
+    return res.json();
+  } catch (error) {
+    // Return default data if fetch fails
+    return {
+      current_condition: [
+        {
+          temp_C: "N/A",
+          weatherDesc: [{ value: "Data unavailable" }],
+          humidity: "N/A",
+        },
+      ],
+    };
   }
-
-  return res.json();
 }
 
 export default async function ISRPage() {
