@@ -1,8 +1,6 @@
 async function getWeatherData() {
   const res = await fetch("https://wttr.in/London?format=j1", {
-    next: {
-      revalidate: 60,
-    },
+    cache: "no-store",
   });
 
   if (!res.ok) {
